@@ -24,7 +24,11 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"@tailwindcss/oxide",
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"mathjs": "^14.6.0"
 	}
 }
