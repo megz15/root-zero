@@ -8,10 +8,12 @@
 
     export let lBd = 0
     export let uBd = 1
+
+    let clicksToConverge = 0
 </script>
 
-<card class="relative flex flex-col gap-4 p-4 pt-6 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
-    <div class="absolute -top-2 text-sm bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">📏✂️ Regula Falsi Method:</div>
+<card class="relative flex flex-col gap-4 p-4 pt-7 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
+    <div class="absolute -top-2 bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">✂️📏 Regula Falsi Method:</div>
     <input bind:value={rawExpr} placeholder="Expression" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5" />
     <div class="flex justify-between items-center">
         <div class="text-white">Bounds:</div>
@@ -42,5 +44,9 @@
             lBd = x2
         }
 
+        clicksToConverge++
+
     }}>Evaluate & Renew Bounds</button>
+
+    <div class="text-white text-right">Clicks to Converge: {clicksToConverge}</div>
 </card>

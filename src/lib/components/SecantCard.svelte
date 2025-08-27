@@ -10,10 +10,12 @@
     export let x1 = 1
     let isInitialGuess = true
     let xn = 0
+
+    let clicksToConverge = 0
 </script>
 
-<card class="relative flex flex-col gap-4 p-4 pt-6 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
-    <div class="absolute -top-2 text-sm bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">📏 Secant Method:</div>
+<card class="relative flex flex-col gap-4 p-4 pt-7 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
+    <div class="absolute -top-2 bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">📏 Secant Method:</div>
     <input bind:value={rawExpr} placeholder="Expression" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5" />
     <div class="flex justify-between items-center">
         <div class="text-white">Initial Guesses:</div>
@@ -45,7 +47,11 @@
             x0 = x1
             x1 = xn
 
+            clicksToConverge++
+
         }}>Evaluate</button>
         <input readonly type="number" bind:value={xn} placeholder="Next Approximation" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 grow" />
     </div>
+
+    <div class="text-white text-right">Clicks to Converge: {clicksToConverge}</div>
 </card>
