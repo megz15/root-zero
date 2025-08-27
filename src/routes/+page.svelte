@@ -2,6 +2,7 @@
     import BisectionCard from '$lib/components/BisectionCard.svelte';
     import SecantCard from '$lib/components/SecantCard.svelte';
     import RegulaFalsiCard from '$lib/components/RegulaFalsiCard.svelte';
+    import NewtonRaphsonCard from '$lib/components/NewtonRaphsonCard.svelte';
 
     let rawExpr = '3*x + sin(x) - e^x'
 
@@ -12,12 +13,11 @@
     // Initial Root Guesses
     let initGuess0 = 0
     let initGuess1 = 1
-
-
 </script>
 
 <main class="flex flex-wrap items-center justify-center gap-4 p-8">
     <BisectionCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
     <SecantCard rawExpr={rawExpr} x0={initGuess0} x1={initGuess1} />
     <RegulaFalsiCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
+    <NewtonRaphsonCard rawExpr={rawExpr} x0={initGuess0} />
 </main>
