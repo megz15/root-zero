@@ -1,4 +1,6 @@
 <script lang="ts">
+    import icon from '$lib/assets/favicon.png';
+
     import BisectionCard from '$lib/components/BisectionCard.svelte';
     import SecantCard from '$lib/components/SecantCard.svelte';
     import RegulaFalsiCard from '$lib/components/RegulaFalsiCard.svelte';
@@ -16,7 +18,11 @@
 </script>
 
 <main class="p-8 bg-neutral-900 min-h-screen flex flex-col items-center justify-center gap-8">
-    <h1 class="text-4xl font-bold text-white">Zero Hero 🦸‍♂️</h1>
+    <div class="flex gap-4">
+        <img src={icon} alt="App Icon" class="w-16 h-16 rotate-45" />
+        <h1 class="text-4xl font-bold text-white">Root Finder</h1>
+        <img src={icon} alt="App Icon" class="w-16 h-16 rotate-315" />
+    </div>
     <div class="flex flex-wrap items-center justify-center gap-4">
         <BisectionCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
         <SecantCard rawExpr={rawExpr} x0={initGuess0} x1={initGuess1} />
