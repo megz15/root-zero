@@ -1,5 +1,6 @@
 <script lang="ts">
     import { create, all} from 'mathjs'
+    import Card from './Card.svelte';
     const math = create(all)
 
     export let rawExpr = '3*x + sin(x) - e^x'
@@ -12,16 +13,15 @@
     let clicksToConverge = 0
 </script>
 
-<card class="relative flex flex-col gap-4 p-4 pt-7 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
-    <div class="absolute -top-2 bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">✂️📏 Regula Falsi Method:</div>
-    <input bind:value={rawExpr} placeholder="Expression" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5" />
+<Card title="✂️📏 Regula Falsi Method:">
+    <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center">
         <div class="text-white">Bounds:</div>
-        <input type="number" bind:value={lBd} placeholder="Lower Bound" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 w-32" />
-        <input type="number" bind:value={uBd} placeholder="Upper Bound" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 w-32" />
+        <input autocomplete="off" type="number" bind:value={lBd} placeholder="Lower Bound" class="max-w-32 max-sm:max-w-24" />
+        <input autocomplete="off" type="number" bind:value={uBd} placeholder="Upper Bound" class="max-w-32 max-sm:max-w-24" />
     </div>
 
-    <button class="focus:outline-none text-black bg-lime-500 rounded-lg text-sm px-5 py-2.5" on:click={() => {
+    <button on:click={() => {
         const fAtlBd = f.evaluate({ x: lBd })
         const fAtuBd = f.evaluate({ x: uBd })
 
@@ -49,4 +49,4 @@
     }}>Evaluate & Renew Bounds</button>
 
     <div class="text-white text-right">Clicks to Converge: {clicksToConverge}</div>
-</card>
+</Card>

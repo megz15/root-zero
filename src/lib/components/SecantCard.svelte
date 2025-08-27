@@ -1,5 +1,6 @@
 <script lang="ts">
     import { create, all} from 'mathjs'
+    import Card from './Card.svelte';
     const math = create(all)
 
     export let rawExpr = '3*x + sin(x) - e^x'
@@ -14,17 +15,16 @@
     let clicksToConverge = 0
 </script>
 
-<card class="relative flex flex-col gap-4 p-4 pt-7 w-96 bg-neutral-800 border border-black rounded-lg shadow-md">
-    <div class="absolute -top-2 bg-neutral-950 text-white px-2 rounded-lg border border-gray-400">📏 Secant Method:</div>
-    <input bind:value={rawExpr} placeholder="Expression" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5" />
-    <div class="flex justify-between items-center">
-        <div class="text-white">Initial Guesses:</div>
-        <input type="number" bind:value={x0} placeholder="First Guess" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 w-20" />
-        <input type="number" bind:value={x1} placeholder="Second Guess" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 w-20" />
+<Card title="📏 Secant Method:">
+    <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
+    <div class="flex justify-between items-center gap-2">
+        <div class="text-white">Guesses:</div>
+        <input autocomplete="off" type="number" bind:value={x0} placeholder="First Guess" class="grow max-w-28 max-sm:max-w-22" />
+        <input autocomplete="off" type="number" bind:value={x1} placeholder="Second Guess" class="grow max-w-28 max-sm:max-w-22" />
     </div>
 
-    <div class="flex gap-2">
-        <button class="focus:outline-none text-black bg-lime-500 rounded-lg text-sm px-5 py-2.5" on:click={() => {
+    <div class="flex gap-2 justify-between">
+        <button on:click={() => {
             const fAtx0 = f.evaluate({ x: x0 })
             const fAtx1 = f.evaluate({ x: x1 })
 
@@ -50,8 +50,8 @@
             clicksToConverge++
 
         }}>Evaluate</button>
-        <input readonly type="number" bind:value={xn} placeholder="Next Approximation" class="bg-gray-100 border border-gray-400 text-gray-900 text-sm rounded p-2.5 grow" />
+        <input autocomplete="off" readonly type="number" bind:value={xn} placeholder="Next Approximation" class="grow max-sm:max-w-36" />
     </div>
 
     <div class="text-white text-right">Clicks to Converge: {clicksToConverge}</div>
-</card>
+</Card>
