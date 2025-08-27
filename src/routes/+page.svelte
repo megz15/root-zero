@@ -1,19 +1,23 @@
 <script lang="ts">
     import BisectionCard from '$lib/components/BisectionCard.svelte';
     import SecantCard from '$lib/components/SecantCard.svelte';
+    import RegulaFalsiCard from '$lib/components/RegulaFalsiCard.svelte';
 
     let rawExpr = '3*x + sin(x) - e^x'
 
-    // Bisection
-    let bisection_lBd = 0
-    let bisection_uBd = 1
+    // Initial Bound Guesses
+    let initLBd = 0
+    let initUBd = 1
 
-    // Secant
-    let secant_initGuess0 = 0
-    let secant_initGuess1 = 1
+    // Initial Root Guesses
+    let initGuess0 = 0
+    let initGuess1 = 1
+
+
 </script>
 
-<main class="flex flex-col items-center justify-center min-h-screen p-4 gap-4">
-    <BisectionCard rawExpr={rawExpr} lBd={bisection_lBd} uBd={bisection_uBd} />
-    <SecantCard rawExpr={rawExpr} x0={secant_initGuess0} x1={secant_initGuess1} />
+<main class="flex flex-wrap items-center justify-center gap-4 p-8">
+    <BisectionCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
+    <SecantCard rawExpr={rawExpr} x0={initGuess0} x1={initGuess1} />
+    <RegulaFalsiCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
 </main>
