@@ -5,6 +5,7 @@
     import SecantCard from '$lib/components/SecantCard.svelte'
     import RegulaFalsiCard from '$lib/components/RegulaFalsiCard.svelte'
     import NewtonRaphsonCard from '$lib/components/NewtonRaphsonCard.svelte'
+    import FixedPointCard from '$lib/components/FixedPointCard.svelte';
 
     const rawExpr = '3*x + sin(x) - e^x'
 
@@ -28,5 +29,6 @@
         <SecantCard rawExpr={rawExpr} x0={initGuess0} x1={initGuess1} />
         <RegulaFalsiCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
         <NewtonRaphsonCard rawExpr={rawExpr} x0={initGuess0} />
+        <FixedPointCard x0={initGuess0} />
     </div>
 </main>
