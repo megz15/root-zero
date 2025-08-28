@@ -1,29 +1,29 @@
 <script lang="ts">
-    import { create, all} from 'mathjs'
+    import { create, all, derivative} from 'mathjs'
     import Card from './Card.svelte';
     const math = create(all)
 
-    export let rawExpr = '3*x + sin(x) - e^x'
+    export let rawExpr = 'e^x - x - 1'
     $: parsedExpr = math.parse(rawExpr)
     $: f = parsedExpr.compile()
 
     $: derivativeOfParsedExpr = math.derivative(parsedExpr, 'x')
     $: fPrime = derivativeOfParsedExpr.compile()
+    
+    $: derivativeOfFPrime = math.derivative(derivativeOfParsedExpr, 'x')
+    $: fDoublePrime = derivativeOfFPrime.compile()
 
-    export let m = 1    // multiplicity
-    export let x0 = 0
+    export let x0 = 1
     let xn = 0
 
     let clicksToConverge = 0
 </script>
 
-<Card title="🍎 Newton-Raphson Method:">
+<Card title="🪄🍎 Modified Newton's Method:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center gap-2">
         <div class="text-white">Guess:</div>
         <input autocomplete="off" type="number" bind:value={x0} placeholder="First Guess" class="grow w-16" />
-        <div class="text-white">m:</div>
-        <input autocomplete="off" type="number" bind:value={m} placeholder="First Guess" class="grow w-16" />
     </div>
 
     <div class="flex gap-2 justify-between">
@@ -42,7 +42,14 @@
                 return
             }
 
-            xn = x0 - m * fAtx0 / fPrimeAtx0
+            const fDoublePrimeAtx0 = fDoublePrime.evaluate({ x: x0 })
+            if (fDoublePrimeAtx0 == 0) {
+                alert("Second Derivative is zero, try a different guess")
+                xn = x0
+                return
+            }
+
+            xn = x0 - (fAtx0 * fPrimeAtx0) / (fPrimeAtx0 * fPrimeAtx0 - fAtx0 * fDoublePrimeAtx0)
             x0 = xn
 
             clicksToConverge++
