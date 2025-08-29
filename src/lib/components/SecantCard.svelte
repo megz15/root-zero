@@ -15,7 +15,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="📏 Secant Method:">
+<Card title="📏 Secant:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center gap-2">
         <div class="text-white">Guesses:</div>

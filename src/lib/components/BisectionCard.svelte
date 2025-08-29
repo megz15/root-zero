@@ -13,7 +13,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="✂️ Bisection Method:">
+<Card title="✂️ Bisection:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center">
         <div class="text-white">Bounds:</div>

@@ -27,7 +27,7 @@
         <h1 class="text-4xl font-bold text-white text-center">Root Finder</h1>
         <img src={icon} alt="App Icon" class="w-16 h-16 rotate-315" />
     </div>
-    <div class="grid grid-cols-2 max-[850px]:grid-cols-1 gap-4">
+    <div class="grid grid-cols-3 max-[820px]:grid-cols-1 max-[1205px]:grid-cols-2 gap-4 place-items-center">
         <BisectionCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />
         <SecantCard rawExpr={rawExpr} x0={initGuess0} x1={initGuess1} />
         <RegulaFalsiCard rawExpr={rawExpr} lBd={initLBd} uBd={initUBd} />

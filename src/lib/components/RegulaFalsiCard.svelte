@@ -13,7 +13,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="✂️📏 Regula Falsi Method:">
+<Card title="✂️📏 Regula Falsi:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center">
         <div class="text-white">Bounds:</div>

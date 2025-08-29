@@ -17,7 +17,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="🍎 Newton-Raphson Method:">
+<Card title="🍎 Newton-Raphson:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center gap-2">
         <div class="text-white">Guess:</div>

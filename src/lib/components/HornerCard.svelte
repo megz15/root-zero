@@ -10,7 +10,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="📯 Horner's Method:">
+<Card title="📯 Horner's:">
     <div class="flex justify-between items-center gap-2">
         <div class="text-white">Polynomial Coeff:</div>
         <input autocomplete="off" bind:value={rawExpr} placeholder="Comma-separated coefficient values" class="grow w-16" />

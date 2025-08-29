@@ -19,7 +19,7 @@
     let clicksToConverge = 0
 </script>
 
-<Card title="🪄🍎 Modified Newton's Method:">
+<Card title="🪄🍎 Modified Newton's:">
     <input autocomplete="off" bind:value={rawExpr} placeholder="Expression" />
     <div class="flex justify-between items-center gap-2">
         <div class="text-white">Guess:</div>
