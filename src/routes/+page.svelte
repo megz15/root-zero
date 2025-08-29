@@ -7,6 +7,7 @@
     import NewtonRaphsonCard from '$lib/components/NewtonRaphsonCard.svelte'
     import FixedPointCard from '$lib/components/FixedPointCard.svelte';
     import ModifiedNewtonCard from '$lib/components/ModifiedNewtonCard.svelte';
+    import MullerCard from '$lib/components/MullerCard.svelte';
 
     const rawExpr = '3*x + sin(x) - e^x'
 
@@ -32,5 +33,6 @@
         <NewtonRaphsonCard rawExpr={rawExpr} x0={initGuess0} />
         <FixedPointCard x0={initGuess0} />
         <ModifiedNewtonCard rawExpr={rawExpr} x0={initGuess0} />
+        <MullerCard rawExpr={rawExpr} />
     </div>
 </main>
